@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Layout from '../containers/Layout'
 export default function Login (){
+    const [login, setLogin] = useState(0)
     return <Layout><h1>로그인폼</h1>
     <form>
   
