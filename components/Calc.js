@@ -7,28 +7,41 @@ export default function Calc (){
     const [result, setResult] = useState(0)
     const sum = () => {
         let num1 = document.getElementById('num1').value
-        console.log(`숫자1 :`+num1)
         let num2 = document.getElementById('num2').value
-        console.log(`숫자2 :`+num2)
+        let opcode = document.getElementById('opcode').value
         setNum1(num1)
         setNum2(num2)
-        setResult(Number(num1) + Number(num2))
-        console.log(`결과 :` +result) //중간확인하고싶은그자바에서sout같은거
+        setOpcode(opcode)
+        switch(opcode){
+            case "+" :
+                return setResult(Number(num1) + Number(num2))
+            case "-" :
+                return setResult(Number(num1) - Number(num2))
+            case "*" :
+                return setResult(Number(num1) * Number(num2))
+            case "/" :
+                return setResult(Number(num1) / Number(num2))
+            case "%" :
+                return setResult(Number(num1) % Number(num2))
+            default :
+        }
     }
-    return <Layout><h1>Calc폼</h1>
+
+    return <Layout>
+    <h1>Calc폼</h1>
     
     <div>
-    <form action="">
+    
     <label><b>num1</b></label>
     <input id = "num1" type="" /><br />
 
     <label htmlFor=""><b>opcode</b></label>
-    <select name="" id="">
-    <option value="">+</option>
-    <option value="">-</option>
-    <option value="">*</option>
-    <option value="">/</option>
-    <option value="">%</option>
+    <select name="" id="opcode">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
     </select>
     <br />
 
@@ -36,8 +49,7 @@ export default function Calc (){
     <input id = "num2" type="" /><br />
 
     <button onClick={()=>sum()}>더하기 실행</button>
-    </form>
-    <div>결과 :</div>
+    <div>결과 : {num1} {opcode} {num2} = {result} </div>
     
     </div>
     </Layout>

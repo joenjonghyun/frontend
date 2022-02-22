@@ -3,7 +3,7 @@ import Layout from "../containers/Layout";
 
 export default function Bmi (){
     const [bmi, setBmi] = useState(0)
-    const [username, setUsername] = useState("/")
+    const [username, setUsername] = useState("")
     const [height, setHeight] = useState(0.0)
     const [weight, setWeight] = useState(0.0)
     const [result, setResult] = useState(0)
