@@ -3,7 +3,7 @@ import Layout from "../containers/Layout";
 
 export default function Home(){ 
    return <Layout>
-     <h1>Home</h1>
+     <h1>바탕화면</h1>
         </Layout>
 
 }

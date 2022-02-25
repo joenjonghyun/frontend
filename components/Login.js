@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Layout from '../containers/Layout'
 export default function Login (){
-    const [id, setId] = useState("")
+   /* const [id, setId] = useState("")
     const [pw, setPw] = useState(0)
     const [name, setName] = useState("")
     const res =()=>{
@@ -10,24 +10,35 @@ export default function Login (){
     let name = document.getElementById('name').value
     setId(id)
     setPw(pw)
-    setName(name)
+    setName(name)*/
+    const [inputs, setInputs] = useState([])
+    const [pw, name] = inputs
+    const onChange =(e)=>{
+        e.preventDefault()
+        const {value, id} = e.target
+        setInputs({
+            ...inputs, [id] : value
+        })
     }
-    return <Layout><h1>로그인폼</h1>
+    const onClick = (e)=> {
+        e.preventDefault()
+        const res = {name,pw}
+        alert(`사용자 이름 : ${JSON.stringify(res)}`)
+    }
+    return <Layout><h1>로그인</h1>
   
     <div>
-    <label><b>ID</b></label>
-    <input id = "id"type=""/><br/>
 
-    <label><b>Username</b></label>
-    <input id = "name" type="" /><br />
+    <label><b>이름</b></label>
+    <input type="text" onChange={onChange} id="name" /><br />
 
-    <label htmlFor=""><b>Password</b></label>
-    <input id = "pw" type="" /><br />
+    <label htmlFor=""><b>비밀번호</b></label>
+    <input type="text" onChange={onChange} id="pw" /><br />
 
-    <button onClick={()=>res()}>Login</button><br />
+    <button onClick={onClick}>로그인</button><br />
     <label><input type="checkbox" />Remember me</label><br />
     </div>
-    <div>아이디 : {id} 이름 : {name} 비밀번호 : {pw}</div>
+    <div>이름 : {name} 비밀번호 : {pw}</div>
     <div>
     <button>Cancel</button><br />
     <span>Forgot <a>password?</a></span>
