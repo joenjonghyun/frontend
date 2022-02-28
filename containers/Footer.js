@@ -1,4 +1,5 @@
 import React from "react";
+import {} from "./";
 export default function Footer(){
     return(<div>
         <div className="NavLinks_navLinksClass__Emk_i NavLinks_wide__OPVBB ">
